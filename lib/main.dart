@@ -6,6 +6,7 @@ import 'package:event/constants/string_constants.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'dart:math';
 
 void main() {
   runApp(MyApp());
@@ -36,7 +37,7 @@ class _EventScreenState extends State<EventScreen>
   final videoURL = "https://www.youtube.com/watch?v=ZBqbC8Kdg60&t=135s";
 
   late YoutubePlayerController _controller;
-  late AnimationController _opacity;
+  late AnimationController _animationController;
   bool animate = false;
 
   final List<String> assetsimage1 = [
@@ -63,7 +64,7 @@ class _EventScreenState extends State<EventScreen>
     );
 
     super.initState();
-    _opacity = AnimationController(
+    _animationController = AnimationController(
       duration: const Duration(seconds: 1),
       vsync: this);
       StartAnimation();
@@ -134,10 +135,28 @@ class _EventScreenState extends State<EventScreen>
                                 const SizedBox(
                                   height: 20,
                                 ),
-                                const Icon(
-                                  Icons.business,
+                                
+                                // AnimatedBuilder(
+                                //  animation: _animationController,
+                                //  builder: (context, child) {
+                                //    return Transform.rotate(
+                                //      angle: _animationController.value * 2 * pi,  // Example: Rotate icon
+                                //      child: Icon(
+                                //   Icons.rocket_launch,
+                                //   size: 30,
+                                //   color: Color.fromARGB(255, 230, 161, 77),
+                                // ),
+
+                              //      );
+                              //    },
+                              //  ),
+
+                                 Icon(
+                                  Icons.rocket_launch,
                                   size: 30,
+                                  color: Color.fromARGB(255, 49, 3, 60),
                                 ),
+
                                 const SizedBox(
                                   height: 20,
                                 ),
@@ -306,6 +325,7 @@ class _EventScreenState extends State<EventScreen>
                                 Icon(
                                   Icons.handshake,
                                   size: 30,
+                                  color: Colors.blue[900],
                                 ),
                                 const SizedBox(
                                   height: 20,
@@ -469,6 +489,7 @@ class _EventScreenState extends State<EventScreen>
                                 Icon(
                                   Icons.home_repair_service_rounded,
                                   size: 30,
+                                  color: Colors.green[900],
                                 ),
                                 const SizedBox(
                                   height: 20,
@@ -588,7 +609,7 @@ class _EventScreenState extends State<EventScreen>
                         ),
                         background: Image.asset(
                           'assets/images/incepta.png',
-                          fit: BoxFit.fitWidth,
+                          fit: BoxFit.contain,
                           height: height,
                           width: width,
                         ),
@@ -603,7 +624,7 @@ class _EventScreenState extends State<EventScreen>
                           borderRadius: BorderRadius.circular(20.0),
                           child: Container(
                             height: 1300,
-                            color: const Color.fromARGB(255, 145, 112, 201),
+                            color: Color.fromARGB(255, 240, 165, 79),
                             child: Column(
                               children: [
                                 const SizedBox(
@@ -624,6 +645,7 @@ class _EventScreenState extends State<EventScreen>
                                 Icon(
                                   Icons.business,
                                   size: 30,
+                                  color: Colors.red[700],
                                 ),
                                 const SizedBox(
                                   height: 20,
@@ -750,7 +772,57 @@ class _EventScreenState extends State<EventScreen>
                     ),
 
                     //sliver items
-                   
+                   SliverToBoxAdapter(
+                    child: Padding(
+                      padding: EdgeInsets.all(10),
+                      child: ClipRRect(
+                          borderRadius: BorderRadius.circular(20.0),
+                          child: Container(
+                            height: 100,
+                            color: Colors.grey,
+                          ),
+                      ),
+                      ),
+                   ),
+
+                   SliverToBoxAdapter(
+                    child: Padding(
+                      padding: EdgeInsets.all(10),
+                      child: ClipRRect(
+                          borderRadius: BorderRadius.circular(20.0),
+                          child: Container(
+                            height: 100,
+                            color: Colors.grey,
+                          ),
+                      ),
+                      ),
+                   ),
+
+                   SliverToBoxAdapter(
+                    child: Padding(
+                      padding: EdgeInsets.all(10),
+                      child: ClipRRect(
+                          borderRadius: BorderRadius.circular(20.0),
+                          child: Container(
+                            height: 100,
+                            color: Colors.grey,
+                          ),
+                      ),
+                      ),
+                   ),
+
+                   SliverToBoxAdapter(
+                    child: Padding(
+                      padding: EdgeInsets.all(10),
+                      child: ClipRRect(
+                          borderRadius: BorderRadius.circular(20.0),
+                          child: Container(
+                            height: 100,
+                            color: Colors.grey,
+                          ),
+                      ),
+                      ),
+                   ),
 
                   ],
                 ),
